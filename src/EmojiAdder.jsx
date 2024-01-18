@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 export default function EmojiAdder({emojis}){
+    const heart = '❤️';
     const randomIndex = Math.floor(Math.random() * emojis.length)
     const [emoji, setEmoji] = useState([{id: uuidv4(), emoji: emojis[randomIndex]}])
 
@@ -12,16 +13,18 @@ export default function EmojiAdder({emojis}){
     }
 
     function deleteEmoji(id) {
-        // emoji.map(e => {
-        //     if(e.id === id){
-
-        //     }
-        // })
-        console.log(id)
         setEmoji(oldEmojis => {
             return oldEmojis.filter( //copies all of the element that is true
                 e => (id !== e.id)
             )
+        })
+    }
+
+    function replaceHearts() {
+        setEmoji(oldEmojis => {
+            return oldEmojis.map(e => {
+                return {...e, emoji: heart}
+            })
         })
     }
     return (
@@ -33,6 +36,7 @@ export default function EmojiAdder({emojis}){
             ))}
             <br />
             <button onClick={addEmoji}>add Emoji</button>
+            <button onClick={replaceHearts}>Replace all by hearts</button>
         </div>
     )
 }
