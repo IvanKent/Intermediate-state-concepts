@@ -3,6 +3,7 @@ import RandomNumber from './RandomNumber'
 import RowColor from './RowColor'
 import ScoreKeeper from './ScoreKeeper'
 import EmojiAdder from './EmojiAdder'
+import ScoreKeeper2 from './ScoreKeeper2'
 const colors = [
   "red",
   "blue",
@@ -37,7 +38,8 @@ function App() {
     <div>
       {/* <RowColor colors={colors}/> */}
       {/* <ScoreKeeper/> */}
-      <EmojiAdder emojis={emojis}/>
+      {/* <EmojiAdder emojis={emojis}/> */}
+      <ScoreKeeper2 players={10}/>
     </div>
   )
 }
