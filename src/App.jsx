@@ -1,13 +1,34 @@
 import './App.css'
-
-const randomNumbers = Array.from({ length: 100 }, () => Math.floor(Math.random() * 1000));
-console.log(randomNumbers);
+import RandomNumber from './RandomNumber'
+import RowColor from './RowColor'
+const colors = [
+  "red",
+  "blue",
+  "green",
+  "yellow",
+  "purple",
+  "orange",
+  "cyan",
+  "magenta",
+  "pink",
+  "teal",
+  "lime",
+  "brown",
+  "navy",
+  "olive",
+  "maroon",
+  "indigo",
+  "turquoise",
+  "violet",
+  "salmon",
+  "khaki"
+];
 
 
 function App() {
   return (
     <div>
-      <randomNumber numbers={randomNumbers}/>
+      <RowColor colors={colors}/>
     </div>
   )
 }
