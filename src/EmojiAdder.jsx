@@ -10,10 +10,26 @@ export default function EmojiAdder({emojis}){
             return [...oldEmojis, {id: uuidv4(), emoji: emojis[randomIndex]}]
         })
     }
+
+    function deleteEmoji(id) {
+        // emoji.map(e => {
+        //     if(e.id === id){
+
+        //     }
+        // })
+        console.log(id)
+        setEmoji(oldEmojis => {
+            return oldEmojis.filter( //copies all of the element that is true
+                e => (id !== e.id)
+            )
+        })
+    }
     return (
         <div>
             {emoji.map((e) => (
-                <span key={e.id} style={{fontSize: '3rem'}}>{e.emoji}</span>
+                <span onClick={() => {
+                    return deleteEmoji(e.id)
+                }} key={e.id} style={{fontSize: '3rem'}}>{e.emoji}</span>
             ))}
             <br />
             <button onClick={addEmoji}>add Emoji</button>
